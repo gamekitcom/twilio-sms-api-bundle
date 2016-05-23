@@ -1,0 +1,24 @@
+{
+  "name": "ocsoftwarepl/twilio-sms-api-bundle",
+  "description": "bundle twilio-sms-api",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "bf"
+    }
+  ],
+  "keywords": [
+    "sms twilio"
+  ],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "twilio/sdk": "^4.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "OCSoftwarePL\\TwilioSmsApiBundle\\": ""
+    }
+  }
+}
