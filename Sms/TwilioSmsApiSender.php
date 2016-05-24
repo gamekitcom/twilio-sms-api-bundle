@@ -38,8 +38,16 @@ class TwilioSmsApiSender
                 'Body' => $sms->msg
             ];
 
-            return $this->getApi()->account->messages->create($twilioSms);
+            $response = $this->getApi()->account->messages->create($twilioSms);
 
+            return new TwilioSendResponse(
+                $response->sid,
+                $response->status,
+                $response->error_code,
+                $response->error_message,
+                $response->uri
+            );
+            
         } catch (\Exception $e) {
             throw $e;
         }
