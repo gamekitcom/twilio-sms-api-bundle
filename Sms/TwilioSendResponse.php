@@ -30,4 +30,20 @@ class TwilioSendResponse
         $this->uri = $uri;
     }
 
+    /**
+     * @return bool
+     */
+    public function isOk()
+    {
+        return !$this->failed();
+    }
+
+    /**
+     * @return bool
+     */
+    public function failed()
+    {
+        return in_array($this->status, [self::STATUS_UNDELIVERED, self::STATUS_FAILED]);
+    }
+
 }
