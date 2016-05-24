@@ -2,7 +2,7 @@
 
 namespace OCSoftwarePL\TwilioSmsApiBundle\Sms;
 
-use OCSoftwarePL\EsendexSmsApiBundle\Sms\DTO\Sms;
+use OCSoftwarePL\TwilioSmsApiBundle\Sms\DTO\Sms;
 use Services_Twilio;
 
 class TwilioSmsApiSender
