@@ -43,7 +43,12 @@ class TwilioSendResponse
      */
     public function failed()
     {
-        return in_array($this->status, [self::STATUS_UNDELIVERED, self::STATUS_FAILED]);
+        return self::isFailStatus($this->status);
+    }
+
+    public static function isFailStatus($status)
+    {
+        return in_array($status, [self::STATUS_UNDELIVERED, self::STATUS_FAILED]);
     }
 
 }
