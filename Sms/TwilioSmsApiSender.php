@@ -35,7 +35,8 @@ class TwilioSmsApiSender
             $twilioSms = [
                 'From' => $this->senderName,
                 'To' => $sms->phone,
-                'Body' => $sms->msg
+                'Body' => $sms->msg,
+                'StatusCallback' => $this->config['callback_url']
             ];
 
             $response = $this->getApi()->account->messages->create($twilioSms);
@@ -47,7 +48,7 @@ class TwilioSmsApiSender
                 $response->error_message,
                 $response->uri
             );
-            
+
         } catch (\Exception $e) {
             throw $e;
         }
