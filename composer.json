@@ -1,5 +1,5 @@
 {
-  "name": "ocsoftwarepl/twilio-sms-api-bundle",
+  "name": "gamekitcom/twilio-sms-api-bundle",
   "description": "bundle twilio-sms-api",
   "type": "symfony-bundle",
   "authors": [
