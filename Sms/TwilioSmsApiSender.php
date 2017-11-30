@@ -27,9 +27,10 @@ class TwilioSmsApiSender
 
     /**
      * @param Sms $sms
+     * @param bool $forceDelivery omit checking is phone number valid
      * @throws \Exception
      */
-    public function sendSms(Sms $sms)
+    public function sendSms(Sms $sms, $forceDelivery = false)
     {
         try {
             $twilioSms = [
@@ -38,6 +39,10 @@ class TwilioSmsApiSender
                 'Body' => $sms->msg,
                 'StatusCallback' => $this->config['callback_url']
             ];
+
+            if ($forceDelivery) {
+                $twilioSms['ForceDelivery'] = true;
+            }
 
             $response = $this->getApi()->account->messages->create($twilioSms);
 
